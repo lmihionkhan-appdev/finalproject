@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
   def index
-    matching_expenses = Expense.all
+    matching_expenses = Expense.where(:users_id => @current_user.id)
 
     @list_of_expenses = matching_expenses.order({ :created_at => :desc })
 
@@ -45,7 +45,7 @@ class ExpensesController < ApplicationController
 
     if the_expense.valid?
       the_expense.save
-      redirect_to("/expenses/#{the_expense.id}", { :notice => "Expense updated successfully."} )
+      redirect_to("/expenses/#{the_expense.id}", { :notice => "Expense updated successfully." })
     else
       redirect_to("/expenses/#{the_expense.id}", { :alert => the_expense.errors.full_messages.to_sentence })
     end
@@ -57,6 +57,6 @@ class ExpensesController < ApplicationController
 
     the_expense.destroy
 
-    redirect_to("/expenses", { :notice => "Expense deleted successfully."} )
+    redirect_to("/expenses", { :notice => "Expense deleted successfully." })
   end
 end

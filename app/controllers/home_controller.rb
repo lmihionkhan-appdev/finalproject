@@ -4,7 +4,9 @@ class HomeController < ApplicationController
 
     #calculate total incomes by month
 
-    matching_incomes = Income.all
+    ###grab incomes from this user
+
+    matching_incomes = Income.where(:users_id => @current_user.id)
     @list_of_incomes = matching_incomes.order({ :expected_date => :asc })
 
     #calculate total expenses by month

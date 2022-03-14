@@ -1,6 +1,6 @@
 class IncomesController < ApplicationController
   def index
-    matching_incomes = Income.all
+    matching_incomes = Income.where(:users_id => @current_user.id)
 
     @list_of_incomes = matching_incomes.order({ :created_at => :desc })
 
