@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Income <%= @the_income.name %> details
+      Income #<%= @the_income.id %> details
     </h1>
 
     <div>
@@ -47,6 +47,12 @@
         <%= @the_income.expected_date %>
       </dd>
 
+      <dt>
+        Users
+      </dt>
+      <dd>
+        <%= @the_income.users_id %>
+      </dd>
 
       <dt>
         Created at
@@ -104,7 +110,15 @@
           Expected date
         </label>
 
-        <input type="text" id="expected_date_box" name="query_expected_date" value="<%= @the_income.expected_date %>">
+        <input type="date" id="expected_date_box" name="query_expected_date" value="<%= @the_income.expected_date %>">
+      </div>
+
+      <div>
+        <label for="users_id_box">
+          Users
+        </label>
+
+        <input type="text" id="users_id_box" name="query_users_id" value="<%= @the_income.users_id %>">
       </div>
 
       <button>

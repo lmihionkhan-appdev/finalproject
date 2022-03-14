@@ -4,6 +4,25 @@ Rails.application.routes.draw do
 
   # CREATE
   post("/insert_income", { :controller => "incomes", :action => "create" })
+          
+  # READ
+  get("/incomes", { :controller => "incomes", :action => "index" })
+  
+  get("/incomes/:path_id", { :controller => "incomes", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_income/:path_id", { :controller => "incomes", :action => "update" })
+  
+  # DELETE
+  get("/delete_income/:path_id", { :controller => "incomes", :action => "destroy" })
+
+  #------------------------------
+
+  # Routes for the Income resource:
+
+  # CREATE
+  post("/insert_income", { :controller => "incomes", :action => "create" })
 
   # READ
   get("/incomes", { :controller => "incomes", :action => "index" })
