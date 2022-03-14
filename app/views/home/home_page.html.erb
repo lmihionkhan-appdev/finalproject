@@ -1,1 +1,14 @@
-<h1>howdy</h1>
+<h1>Home Dashboard</h1>
+
+<h2>Net Cash Flows<h2>
+
+
+ <% @list_of_incomes.each do |an_income| %>
+<ul>
+  <li><%= an_income.expected_date.month %>
+    </li>
+ </ul>
+ <% end %>
+
+
+<!--bar graph representing net cash flows by month-->
