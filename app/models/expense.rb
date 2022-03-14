@@ -13,6 +13,7 @@
 #
 class Expense < ApplicationRecord
   validates(:name, { :presence => true })
+  validates(:name, { :uniqueness => true })
   validates(:expected_date, { :presence => true })
   validates(:expense_type, { :presence => true })
   validates(:amount, { :presence => true })
