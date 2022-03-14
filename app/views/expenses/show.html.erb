@@ -1,76 +1,22 @@
 <div>
   <div>
     <h1>
-      Expense #<%= @the_expense.id %> details
+      <%= @the_expense.name %> Details
     </h1>
-
-    <div>
-      <div>
-        <a href="/expenses">
-          Go back
-        </a>
-      </div>
-
-      <div>
-        <a href="/delete_expense/<%= @the_expense.id %>">
-          Delete expense
-        </a>
-      </div>
-    </div>
-
-    <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_expense.name %>
-      </dd>
-
-      <dt>
-        Amount
-      </dt>
-      <dd>
-        <%= @the_expense.amount %>
-      </dd>
-
-      <dt>
-        Expected date
-      </dt>
-      <dd>
-        <%= @the_expense.expected_date %>
-      </dd>
-
-      <dt>
-        Expense type
-      </dt>
-      <dd>
-        <%= @the_expense.expense_type %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_expense.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_expense.updated_at) %> ago
-      </dd>
-    </dl>
-  </div>
-</div>
+    <p> 
+    Created <%= time_ago_in_words(@the_expense.created_at) %> ago. 
+      </p>
+    <p> 
+    Last updated <%= time_ago_in_words(@the_expense.updated_at) %> ago. 
+      </p>
+    
 
 <hr>
-
 
 <div>
   <div>
     <h2>
-      Edit expense
+      Update expense
     </h2>
 
     <form action="/modify_expense/<%= @the_expense.id %>"  method="post" >
@@ -92,7 +38,7 @@
 
       <div>
         <label for="expected_date_box">
-          Expected date
+          Expected Payment Date
         </label>
 
         <input type="date" id="expected_date_box" name="query_expected_date" value="<%= @the_expense.expected_date %>">
@@ -113,3 +59,18 @@
 </div>
 
 <hr>
+
+
+    <div>
+      <div>
+        <a href="/expenses">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_expense/<%= @the_expense.id %>">
+          Delete expense
+        </a>
+      </div>
+    </div>

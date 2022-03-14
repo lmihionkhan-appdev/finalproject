@@ -19,8 +19,6 @@
 
   <!--
       Only show the sign up/in links if no one is signed in. Else, show the sign out link.
-      
-      We'll start again at 10:05am.
       -->
       <%# if session.keys.exclude?("user_id") %>
       <% if session.fetch("user_id") == nil %>
@@ -50,7 +48,7 @@
     <h1 style="color: red">
       <%= alert %>
     </h1>
-    
+
     <%= yield %>
   </body>
 </html>
