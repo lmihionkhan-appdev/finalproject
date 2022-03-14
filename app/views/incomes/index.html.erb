@@ -1,0 +1,150 @@
+<div>
+  <div>
+    <h1>
+      List of all incomes
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new income
+    </h2>
+
+    <form action="/insert_income" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="amount_box">
+          Amount
+        </label>
+
+        <input type="text" id="amount_box" name="query_amount">
+      </div>
+
+      <div>
+        <label for="income_type_box">
+          Income type
+        </label>
+
+        <input type="text" id="income_type_box" name="query_income_type">
+      </div>
+
+      <div>
+        <label for="expected_date_box">
+          Expected date
+        </label>
+
+        <input type="text" id="expected_date_box" name="query_expected_date">
+      </div>
+
+      <div>
+        <label for="users_id_box">
+          Users
+        </label>
+
+        <input type="text" id="users_id_box" name="query_users_id">
+      </div>
+
+      <button>
+        Create income
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Amount
+        </th>
+
+        <th>
+          Income type
+        </th>
+
+        <th>
+          Expected date
+        </th>
+
+        <th>
+          Users
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_incomes.each do |an_income| %>
+      <tr>
+        <td>
+          <%= an_income.id %>
+        </td>
+
+        <td>
+          <%= an_income.name %>
+        </td>
+
+        <td>
+          <%= an_income.amount %>
+        </td>
+
+        <td>
+          <%= an_income.income_type %>
+        </td>
+
+        <td>
+          <%= an_income.expected_date %>
+        </td>
+
+        <td>
+          <%= an_income.users_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_income.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_income.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/incomes/<%= an_income.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

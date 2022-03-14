@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Income #<%= @the_income.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/incomes">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_income/<%= @the_income.id %>">
+          Delete income
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_income.name %>
+      </dd>
+
+      <dt>
+        Amount
+      </dt>
+      <dd>
+        <%= @the_income.amount %>
+      </dd>
+
+      <dt>
+        Income type
+      </dt>
+      <dd>
+        <%= @the_income.income_type %>
+      </dd>
+
+      <dt>
+        Expected date
+      </dt>
+      <dd>
+        <%= @the_income.expected_date %>
+      </dd>
+
+      <dt>
+        Users
+      </dt>
+      <dd>
+        <%= @the_income.users_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_income.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_income.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit income
+    </h2>
+
+    <form action="/modify_income/<%= @the_income.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_income.name %>">
+      </div>
+
+      <div>
+        <label for="amount_box">
+          Amount
+        </label>
+
+        <input type="text" id="amount_box" name="query_amount" value="<%= @the_income.amount %>">
+      </div>
+
+      <div>
+        <label for="income_type_box">
+          Income type
+        </label>
+
+        <input type="text" id="income_type_box" name="query_income_type" value="<%= @the_income.income_type %>">
+      </div>
+
+      <div>
+        <label for="expected_date_box">
+          Expected date
+        </label>
+
+        <input type="text" id="expected_date_box" name="query_expected_date" value="<%= @the_income.expected_date %>">
+      </div>
+
+      <div>
+        <label for="users_id_box">
+          Users
+        </label>
+
+        <input type="text" id="users_id_box" name="query_users_id" value="<%= @the_income.users_id %>">
+      </div>
+
+      <button>
+        Update income
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
