@@ -17,6 +17,13 @@ class ExpensesController < ApplicationController
     render({ :template => "expenses/show.html.erb" })
   end
 
+  def trip_index
+    matching_expenses = Expense.where(:users_id => @current_user.id)
+    matching_trips = matching_expenses.where(:expense_type => "trip")
+
+    render({ :template => "expenses/trips/trip_index.html.erb" })
+  end
+
   def create
     the_expense = Expense.new
     the_expense.name = params.fetch("query_name")

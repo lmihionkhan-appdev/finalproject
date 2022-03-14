@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all expenses
+      Expense Planner
     </h1>
   </div>
 </div>
@@ -10,9 +10,9 @@
 
 <div>
   <div>
-    <h2>
-      Add a new expense
-    </h2>
+    <h3>
+      Add a new expense:
+    </h3>
 
     <form action="/insert_expense" method="post">
       <div>
@@ -33,7 +33,7 @@
 
       <div>
         <label for="expected_date_box">
-          Expected date
+          Expected Payment Date
         </label>
 
         <input type="date" id="expected_date_box" name="query_expected_date">
@@ -47,14 +47,17 @@
         <input type="text" id="expense_type_box" name="query_expense_type">
       </div>
 
+    
       <button>
-        Create expense
+        Add expense
       </button>
+      
     </form>
   </div>
 </div>
 
 <hr>
+<h3>My Current Expenses </h3>
 <div>
   <div>
     <table border="1">
