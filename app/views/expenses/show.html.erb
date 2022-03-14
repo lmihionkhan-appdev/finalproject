@@ -48,13 +48,6 @@
       </dd>
 
       <dt>
-        Users
-      </dt>
-      <dd>
-        <%= @the_expense.users_id %>
-      </dd>
-
-      <dt>
         Created at
       </dt>
       <dd>
@@ -112,15 +105,6 @@
 
         <input type="text" id="expense_type_box" name="query_expense_type" value="<%= @the_expense.expense_type %>">
       </div>
-
-      <div>
-        <label for="users_id_box">
-          Users
-        </label>
-
-        <input type="text" id="users_id_box" name="query_users_id" value="<%= @the_expense.users_id %>">
-      </div>
-
       <button>
         Update expense
       </button>

@@ -47,14 +47,6 @@
         <input type="text" id="expense_type_box" name="query_expense_type">
       </div>
 
-      <div>
-        <label for="users_id_box">
-          Users
-        </label>
-
-        <input type="text" id="users_id_box" name="query_users_id">
-      </div>
-
       <button>
         Create expense
       </button>
@@ -67,10 +59,6 @@
   <div>
     <table border="1">
       <tr>
-        <th>
-          ID
-        </th>
-
         <th>
           Name
         </th>
@@ -86,11 +74,6 @@
         <th>
           Expense type
         </th>
-
-        <th>
-          Users
-        </th>
-
         <th>
           Created at
         </th>
@@ -106,10 +89,6 @@
       <% @list_of_expenses.each do |an_expense| %>
       <tr>
         <td>
-          <%= an_expense.id %>
-        </td>
-
-        <td>
           <%= an_expense.name %>
         </td>
 
@@ -124,11 +103,6 @@
         <td>
           <%= an_expense.expense_type %>
         </td>
-
-        <td>
-          <%= an_expense.users_id %>
-        </td>
-
         <td>
           <%= time_ago_in_words(an_expense.created_at) %> ago
         </td>
