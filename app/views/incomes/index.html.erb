@@ -47,14 +47,6 @@
         <input type="date" id="expected_date_box" name="query_expected_date">
       </div>
 
-      <div>
-        <label for="users_id_box">
-          Users
-        </label>
-
-        <input type="text" id="users_id_box" name="query_users_id">
-      </div>
-
       <button>
         Create income
       </button>
@@ -67,9 +59,6 @@
   <div>
     <table border="1">
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
           Name
@@ -88,10 +77,6 @@
         </th>
 
         <th>
-          Users
-        </th>
-
-        <th>
           Created at
         </th>
 
@@ -106,10 +91,6 @@
       <% @list_of_incomes.each do |an_income| %>
       <tr>
         <td>
-          <%= an_income.id %>
-        </td>
-
-        <td>
           <%= an_income.name %>
         </td>
 
@@ -123,10 +104,6 @@
 
         <td>
           <%= an_income.expected_date %>
-        </td>
-
-        <td>
-          <%= an_income.users_id %>
         </td>
 
         <td>

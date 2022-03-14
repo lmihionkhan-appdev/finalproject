@@ -23,7 +23,7 @@ class IncomesController < ApplicationController
     the_income.amount = params.fetch("query_amount")
     the_income.income_type = params.fetch("query_income_type")
     the_income.expected_date = params.fetch("query_expected_date")
-    the_income.users_id = params.fetch("query_users_id")
+    the_income.users_id = @current_user.id
 
     if the_income.valid?
       the_income.save
@@ -41,7 +41,7 @@ class IncomesController < ApplicationController
     the_income.amount = params.fetch("query_amount")
     the_income.income_type = params.fetch("query_income_type")
     the_income.expected_date = params.fetch("query_expected_date")
-    the_income.users_id = params.fetch("query_users_id")
+    the_income.users_id = @current_user.id
 
     if the_income.valid?
       the_income.save
