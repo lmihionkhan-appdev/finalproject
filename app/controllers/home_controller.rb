@@ -13,9 +13,7 @@ class HomeController < ApplicationController
     target_month = 1
 
     while target_month <= 12
-      @list_of_incomes = @matching_incomes.order({ :expected_date => :asc })
-
-      @monthly_incomes = @list_of_incomes.where(:expected_date.month => target_month)
+      @monthly_incomes = @matching_incomes.where({ :expected_date.Date.month => target_month })
 
       @total_monthly_income = 0
 
