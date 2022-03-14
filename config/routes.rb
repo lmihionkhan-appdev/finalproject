@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  #HOME PAGE
-  get("/", { :controller => "user_authentication", :action => "sign_in_form" })
-
   # Routes for the Income resource:
 
   # CREATE

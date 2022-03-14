@@ -14,6 +14,8 @@
 class Expense < ApplicationRecord
   validates(:name, { :presence => true })
   validates(:expected_date, { :presence => true })
+  validates(:expense_type, { :presence => true })
+  validates :expense_type, { :inclusion => ["living expense", "school fee", "trip"] }
   validates(:amount, { :presence => true })
 
   belongs_to(:users, { :required => true, :class_name => "User", :foreign_key => "users_id" })
