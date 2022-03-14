@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all incomes
+      Income Planner
     </h1>
   </div>
 </div>
@@ -10,9 +10,9 @@
 
 <div>
   <div>
-    <h2>
-      Add a new income
-    </h2>
+    <h3>
+      Add a new income:
+    </h3>
 
     <form action="/insert_income" method="post">
       <div>
@@ -32,19 +32,19 @@
       </div>
 
       <div>
-        <label for="income_type_box">
-          Income type
-        </label>
-
-        <input type="text" id="income_type_box" name="query_income_type">
-      </div>
-
-      <div>
         <label for="expected_date_box">
           Expected date
         </label>
 
         <input type="date" id="expected_date_box" name="query_expected_date">
+      </div>
+
+      <div>
+        <label for="income_type_box">
+          Income type
+        </label>
+
+        <input type="text" id="income_type_box" name="query_income_type">
       </div>
 
       <button>
@@ -55,6 +55,8 @@
 </div>
 
 <hr>
+
+<h3>My Current Incomes </h3>
 <div>
   <div>
     <table border="1">
@@ -69,11 +71,11 @@
         </th>
 
         <th>
-          Income type
+          Expected Date
         </th>
 
         <th>
-          Expected date
+          Income Type
         </th>
 
         <th>
@@ -99,11 +101,11 @@
         </td>
 
         <td>
-          <%= an_income.income_type %>
+          <%= an_income.expected_date %>
         </td>
 
         <td>
-          <%= an_income.expected_date %>
+          <%= an_income.income_type %>
         </td>
 
         <td>

@@ -17,6 +17,8 @@
 
   <body>
 
+  <h4>MBA Cash Flow + Trip Planner</h4>
+
   <!--
       Only show the sign up/in links if no one is signed in. Else, show the sign out link.
       -->
@@ -39,7 +41,24 @@
           </a>
         </li>
       <% end %>
+      <li>
+        <a href="/">Net Cash Flow Dashboard</a>
+      </li>
+
+      <li>
+        <a href="/incomes">My Income</a>
+      </li>
+
+      <li>
+        <a href="/expenses">My Expenses</a>
+      </li>
+
+      <li>
+        <a href="/trips">My Trips</a>
+      </li>
     </ul>
+
+
 
     <h1 style="color: green">
       <%= notice %>
@@ -48,6 +67,8 @@
     <h1 style="color: red">
       <%= alert %>
     </h1>
+
+    <hr>
 
     <%= yield %>
   </body>
