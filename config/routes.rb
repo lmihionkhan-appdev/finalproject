@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   #HOME PAGE
 
-  get("/", { :controller => "home", action: => "dashboard"})
+  get("/", { :controller => "home", :action => "dashboard" })
 
   # Routes for the Income resource:
 
