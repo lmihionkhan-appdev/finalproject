@@ -2,14 +2,14 @@
 #
 # Table name: incomes
 #
-#  id            :integer          not null, primary key
-#  amount        :string
-#  expected_date :date
-#  income_type   :string
-#  name          :string
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  users_id      :integer
+#  id              :integer          not null, primary key
+#  amount          :float
+#  expected_date   :date
+#  name            :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  income_types_id :integer
+#  users_id        :integer
 #
 class Income < ApplicationRecord
   validates(:amount, { :presence => true })
