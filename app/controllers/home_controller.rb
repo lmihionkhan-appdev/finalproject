@@ -10,7 +10,7 @@ class HomeController < ApplicationController
     @list_of_incomes = matching_incomes.order({ :created_at => :desc })
 
     ###sum all incomes for each month
-
+    #####TA RECOMMENDATION: @matching_incomes.pluck(:amount).sum or matching_incomes.pluck(:amount).each { |a| sum+=a.to_i }
     #target_month = 1
 
     #while target_month <= 12
