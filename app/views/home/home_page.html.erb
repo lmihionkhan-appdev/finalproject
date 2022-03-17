@@ -14,8 +14,8 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Month', 'Income', 'Expenses', 'Net Cash Flow'],
-          ['January', <%= @jan_monthly_income%>, <%= @jan_monthly_expenses%>, <%= @jan_monthly_income - @jan_monthly_expenses%>],
-          ['2015', 1170, 460, 250],
+          ['January', <%= @jan_monthly_income%>, <%= @jan_monthly_expenses%>, <%= @jan_net_cash %>],
+          ['February', <%= @feb_monthly_income%>, <%= @feb_monthly_expenses%>, <%= @feb_net_cash %>],
           ['2016', 660, 1120, 300],
           ['2017', 1030, 540, 350]
         ]);
@@ -43,10 +43,6 @@
 <%= @jan_monthly_income %> Income, <%= @jan_monthly_expenses %> Expenses
 <%= @feb_monthly_income %>
 
-<h2>Net Cash Flow Graph<h2>
-    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
-
-
 <!--table showing net cash flows calculation by month-->
 
 <hr>
@@ -59,19 +55,19 @@
             <th>
             </th>
             <th>
-              Jan
+              January
             </th>
 
             <th>
-              Feb
+              February
             </th>
 
             <th>
-              Mar
+              March
             </th>
             
             <th>
-              Apr
+              April
             </th>
 
             <th>
@@ -79,68 +75,42 @@
             </th>
 
             <th>
-              Jun
+              June
             </th>
 
             <th>
-              Jul
+              July
             </th>
 
             <th>
-              Aug
+              August
             </th>
 
             <th>
-              Sept
+              September
             </th>
 
             <th>
-              Oct
+              October
             </th>
 
             <th>
-              Nov
+              November
             </th>
 
             <th>
-              Dec
+              December
             </th>
           </tr>
 
-<% @a.each do |a_month| %>
 
-  <% @target_month = a_month %>
-  <% @monthly_income = 0 %>
-  <% @monthly_expense = 0 %>
-
-    <% @list_of_incomes.each do |an_income| %>
-        <% @income_month = an_income.expected_date.month %>
-        <% @income_amount = an_income.amount %>
-
-          <%  if @income_month == @target_month %>
-            <% @monthly_income = @monthly_income + @income_amount %>
-           <% end %>
-
-      <% end %>
-
-        <% @list_of_expenses.each do |an_expense| %>
-        <% @expense_month = an_expense.expected_date.month %>
-        <% @expense_amount = an_expense.amount %>
-
-          <%  if @expense_month == @target_month %>
-            <% @monthly_expense = @monthly_expense + @expense_amount %>
-           <% end %>
-
-      <% end %>
-    
-  <% @net_cash_flow = @monthly_income - @monthly_expense %>
 
           <tr>
             <td>
               Income
             </td>
             <td>
-            <%= @monthly_income %>
+            <%= @jan_monthly_income %>
             </td>
           </tr>
 
@@ -150,7 +120,7 @@
             </td>
 
             <td>
-            <%= @monthly_expense %>
+            <%= @jan_monthly_expenses %>
             </td>
           </tr>
 
@@ -159,15 +129,13 @@
               Net Cash Flow
             </td>
             <td>
-              <%= @net_cash_flow%>
+              <%= @jan_net_cash %>
             </td>
           </tr>
       </table>
   </div>
 </div>
 
-
-<% end %>
 
 
 
