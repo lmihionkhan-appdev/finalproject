@@ -149,6 +149,8 @@ GEM
       rchardet (~> 1.8)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    groupdate (6.0.1)
+      activesupport (>= 5.2)
     hashdiff (1.0.1)
     htmlbeautifier (1.4.1)
     http (5.0.4)
@@ -369,6 +371,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   grade_runner!
+  groupdate
   htmlbeautifier
   http
   jbuilder (~> 2.7)

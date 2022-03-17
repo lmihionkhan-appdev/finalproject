@@ -4,14 +4,12 @@
 
 <!--bar graph representing net cash flows by month-->
 
-<%= Income.group_by_month.pluck(:amount).sum %>
-
-
-<!--table showing net cash flows calculation by month-->
-
 
 <%= @jan_monthly_income %>
 <%= @feb_monthly_income %>
+
+
+<!--table showing net cash flows calculation by month-->
 
 <hr>
 
@@ -99,8 +97,6 @@
     
   <% @net_cash_flow = @monthly_income - @monthly_expense %>
 
-  <!-- <p>Month #<%=@target_month%> has <%= @net_cash_flow%> in net cash flow, with <%= @monthly_income %> in income and <%= @monthly_expense %> in expenses. </p> -->
-
           <tr>
             <td>
               Income
@@ -128,12 +124,14 @@
               <%= @net_cash_flow%>
             </td>
           </tr>
+      </table>
+  </div>
+</div>
+
 
 <% end %>
 
-        </table>
-      </div>
-    </div>
+
 
 
 

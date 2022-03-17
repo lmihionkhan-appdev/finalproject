@@ -14,6 +14,7 @@ gem "sprockets", "< 4"
 gem "sassc-rails"
 gem "faker"
 gem "groupdate"
+gem "chartkick"
 
 group :development do
   gem "htmlbeautifier"
