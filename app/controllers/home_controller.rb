@@ -12,17 +12,17 @@ class HomeController < ApplicationController
     @list_of_incomes = matching_incomes.order({ :expected_date => :desc })
 
     #sum all incomes for a month
-    @total_monthly_income = 0
+    @starting_monthly_income = 0
 
     target_month = 7
 
     @list_of_incomes.each do |thing|
-      @check_month = thing.expected_date.month
+      @income_month = thing.expected_date.month
+      @income_amount = thing.amount
 
-      if @check_month = target_month
-        grab_amount = thing.amount
+      if @income_month = target_month
+        @ending_monthly_income = @starting_monthly_income + @income_amount
       end
-      @total_monthly_income = @total_monthly_income + grab_amount
     end
 
     #if @months = 1
