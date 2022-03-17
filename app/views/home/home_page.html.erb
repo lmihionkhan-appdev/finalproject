@@ -22,6 +22,7 @@
 
   <% @target_month = a_month %>
   <% @monthly_income = 0 %>
+  <% @monthly_expense = 0 %>
 
     <% @list_of_incomes.each do |an_income| %>
         <% @income_month = an_income.expected_date.month %>
@@ -33,7 +34,17 @@
 
       <% end %>
 
-  <p>Income for Month #<%=@target_month%> is <%= @monthly_income %>
+        <% @list_of_expenses.each do |an_expense| %>
+        <% @expense_month = an_expense.expected_date.month %>
+        <% @expense_amount = an_expense.amount %>
+
+          <%  if @expense_month == @target_month %>
+            <% @monthly_expense = @monthly_expense + @expense_amount %>
+           <% end %>
+
+      <% end %>
+
+  <p>Month #<%=@target_month%> has <%= @monthly_income %> in income and <%= @monthly_expense %> in expenses. </p>
 
 <% end %>
 

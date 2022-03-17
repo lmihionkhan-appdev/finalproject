@@ -4,12 +4,14 @@ class HomeController < ApplicationController
 
     #calculate total incomes by month
 
-    ###grab incomes from this user
+    ###grab incomes & expenses from this user
 
     matching_incomes = Income.where(:users_id => @current_user.id)
+    matching_expenses = Expense.where(:users_id => @current_user.id)
 
-    ###sort incomes by date
+    ###sort incomes & expenses by date
     @list_of_incomes = matching_incomes.order({ :expected_date => :desc })
+    @list_of_expenses = matching_expenses.order({ :expected_date => :desc })
 
     ###create array for months
 
