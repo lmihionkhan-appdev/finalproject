@@ -18,6 +18,63 @@
 <% end %>
 
 <hr>
+
+<h3>Net Cash Flows</h3>
+    <div>
+      <div>
+        <table border="1">
+        <tr>
+            <th>
+            </th>
+            <th>
+              Jan
+            </th>
+
+            <th>
+              Feb
+            </th>
+
+            <th>
+              Mar
+            </th>
+            
+            <th>
+              Apr
+            </th>
+
+            <th>
+              May
+            </th>
+
+            <th>
+              Jun
+            </th>
+
+            <th>
+              Jul
+            </th>
+
+            <th>
+              Aug
+            </th>
+
+            <th>
+              Sept
+            </th>
+
+            <th>
+              Oct
+            </th>
+
+            <th>
+              Nov
+            </th>
+
+            <th>
+              Dec
+            </th>
+          </tr>
+
 <% @a.each do |a_month| %>
 
   <% @target_month = a_month %>
@@ -43,10 +100,46 @@
            <% end %>
 
       <% end %>
+    
+  <% @net_cash_flow = @monthly_income - @monthly_expense %>
 
-  <p>Month #<%=@target_month%> has <%= @monthly_income %> in income and <%= @monthly_expense %> in expenses. </p>
+  <!-- <p>Month #<%=@target_month%> has <%= @net_cash_flow%> in net cash flow, with <%= @monthly_income %> in income and <%= @monthly_expense %> in expenses. </p> -->
+
+          <tr>
+            <td>
+              Income
+            </td>
+            <td>
+            <%= @monthly_income %>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Expenses
+            </td>
+
+            <td>
+            <%= @monthly_expense %>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Net Cash Flow
+            </td>
+            <td>
+              <%= @net_cash_flow%>
+            </td>
+          </tr>
 
 <% end %>
+
+        </table>
+      </div>
+    </div>
+
+
 
 
 
@@ -62,56 +155,7 @@
 
 
 
-<h3>Net Cash Flows</h3>
-<div>
-  <div>
-    <table border="1">
-      <tr>
-        <th>
-        </th>
-        <th>
-          Jan
-        </th>
 
-        <th>
-          Feb
-        </th>
-
-        <th>
-          July
-        </th>
-      </tr>
-
-      <tr>
-        <td>
-          Income
-        </td>
-        <td>
-        Sample
-        </td>
-        <td>
-        Sample
-        </td>
-        <td>
-        Sample
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          Expenses
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          Net Cash Flow
-        </td>
-      </tr>
-
-    </table>
-  </div>
-</div>
 
 <hr>
 
