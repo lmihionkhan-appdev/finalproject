@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
   get("/expenses/:path_id", { :controller => "expenses", :action => "show" })
 
-  get("/trips", { :controller => "expenses", :action => "trip_index"})
+  #get("/trips", { :controller => "expenses", :action => "trip_index"})
 
   # UPDATE
 

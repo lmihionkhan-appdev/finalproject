@@ -16,6 +16,7 @@ class Income < ApplicationRecord
   validates(:expected_date, { :presence => true })
   validates(:name, { :presence => true })
   validates(:name, { :uniqueness => true })
+  validates(:income_types_id, { :presence => true })
 
   #validates :income_type, inclusion: { in: %w(529 loan scholarship investments savings) }
 

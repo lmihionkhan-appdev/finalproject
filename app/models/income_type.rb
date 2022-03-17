@@ -8,4 +8,7 @@
 #  updated_at :datetime         not null
 #
 class IncomeType < ApplicationRecord
+  
+  belongs_to(:incomes, { :required => true, :class_name => "Income", :foreign_key => "income_types_id" })
+
 end
