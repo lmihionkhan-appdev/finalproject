@@ -33,11 +33,11 @@ class HomeController < ApplicationController
       @expense_amount = thing.amount
 
       if @expense_month == 1
-        @jan_monthly_expenses = @jan_monthly_expensed + @expense_amount
+        @jan_monthly_expenses = @jan_monthly_expenses + @expense_amount
       end
     end
 
-    #Feb Incomes
+    #Feb metrics
 
     @feb_monthly_income = 0
 
@@ -47,6 +47,41 @@ class HomeController < ApplicationController
 
       if @income_month == 2
         @feb_monthly_income = @feb_monthly_income + @income_amount
+      end
+    end
+
+    @feb_monthly_expenses = 0
+
+    @list_of_expenses.each do |thing|
+      @expense_month = thing.expected_date.month
+      @expense_amount = thing.amount
+
+      if @expense_month == 2
+        @feb_monthly_expenses = @feb_monthly_expenses + @expense_amount
+      end
+    end
+
+    #Mar metrics
+
+    @mar_monthly_income = 0
+
+    @list_of_incomes.each do |thing|
+      @income_month = thing.expected_date.month
+      @income_amount = thing.amount
+
+      if @income_month == 3
+        @mar_monthly_income = @mar_monthly_income + @income_amount
+      end
+    end
+
+    @mar_monthly_expenses = 0
+
+    @list_of_expenses.each do |thing|
+      @expense_month = thing.expected_date.month
+      @expense_amount = thing.amount
+
+      if @expense_month == 3
+        @mar_monthly_expenses = @mar_monthly_expenses + @expense_amount
       end
     end
 

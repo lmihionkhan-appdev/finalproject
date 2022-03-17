@@ -1,12 +1,50 @@
-<h1>Home Dashboard</h1>
 
-<h2>Net Cash Flows<h2>
+
+<h1>Home Dashboard</h1>
 
 <!--bar graph representing net cash flows by month-->
 
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
 
-<%= @jan_monthly_income %>
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Month', 'Income', 'Expenses', 'Net Cash Flow'],
+          ['January', <%= @jan_monthly_income%>, <%= @jan_monthly_expenses%>, <%= @jan_monthly_income - @jan_monthly_expenses%>],
+          ['2015', 1170, 460, 250],
+          ['2016', 660, 1120, 300],
+          ['2017', 1030, 540, 350]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Net Cash Flows',
+            subtitle: 'Cash flows from income and expenses',
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+  </head>
+  <body>
+    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+  </body>
+</html>
+
+
+
+<%= @jan_monthly_income %> Income, <%= @jan_monthly_expenses %> Expenses
 <%= @feb_monthly_income %>
+
+<h2>Net Cash Flow Graph<h2>
+    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
 
 
 <!--table showing net cash flows calculation by month-->
@@ -146,14 +184,3 @@
   </li>
  </ul>
  <% end %>
-
-
-
-
-
-
-
-
-
-<hr>
-
