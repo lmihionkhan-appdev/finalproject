@@ -11,26 +11,52 @@ class HomeController < ApplicationController
     ###sort incomes by date
     @list_of_incomes = matching_incomes.order({ :expected_date => :desc })
 
-    #sum all incomes for a month
+    ###create array for months
 
-    target_month = 1
+    @a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
-    @monthly_income = 0
+    ###test loop with array
+
+    @a.each do |a_month|
+      @target_month = a_month
+
+      @monthly_income = 0
+
+      @list_of_incomes.each do |an_income|
+        @income_month = an_income.expected_date.month
+        @income_amount = an_income.amount
+
+        if @income_month == @target_month
+          @monthly_income = @monthly_income + @income_amount
+        end
+      end
+    end
+
+    #Jan Incomes
+
+    @jan_monthly_income = 0
 
     @list_of_incomes.each do |thing|
       @income_month = thing.expected_date.month
       @income_amount = thing.amount
 
-      if @income_month == target_month
-        @monthly_income = @monthly_income + @income_amount
+      if @income_month == 1
+        @jan_monthly_income = @jan_monthly_income + @income_amount
       end
     end
 
-    #if @months = 1
-    #@jan_incomes = an_income.pluck(:amount).sum
-    #end
+    #Feb Incomes
 
-    #@jan_incomes = @list_of_incomes.where({ :expected_date => 1 })
+    @feb_monthly_income = 0
+
+    @list_of_incomes.each do |thing|
+      @income_month = thing.expected_date.month
+      @income_amount = thing.amount
+
+      if @income_month == 2
+        @feb_monthly_income = @feb_monthly_income + @income_amount
+      end
+    end
 
     #####TA RECOMMENDATION:
 

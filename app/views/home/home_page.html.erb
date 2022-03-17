@@ -9,7 +9,19 @@
 <!--table showing net cash flows calculation by month-->
 
 
-<%= @monthly_income %>
+<%= @jan_monthly_income %>
+<%= @feb_monthly_income %>
+
+<!-- testing array -->
+<% @a.each do |thing| %>
+    <%= thing + 1%> 
+<% end %>
+
+<hr>
+<%= @target_month %>
+
+
+
 
  <% @list_of_incomes.each do |an_income| %>
 <ul>
