@@ -39,7 +39,7 @@ class IncomesController < ApplicationController
 
     the_income.name = params.fetch("query_name")
     the_income.amount = params.fetch("query_amount")
-    the_income.income_type = params.fetch("query_income_type")
+    the_income.income_types_id = params.fetch("query_income_types_id")
     the_income.expected_date = params.fetch("query_expected_date")
     the_income.users_id = @current_user.id
 

@@ -18,10 +18,30 @@ class ExpensesController < ApplicationController
   end
 
   def trip_index
-    matching_expenses = Expense.where(:users_id => @current_user.id)
-    matching_trips = matching_expenses.where(:expense_type => "trip")
+    list_of_matching_expenses = Expense.where(:users_id => @current_user.id)
+
+    list_of_matching_expenses.each do |an_expense|
+      @new_array = Array.new
+
+      if an_expense.trips_id == !nil
+        @new_array.push("an_expense")
+      end
+    end
 
     render({ :template => "expenses/trips/trip_index.html.erb" })
+  end
+
+  def add_trip
+    the_trip = Trip.new
+    the_trip.expected_date = params.fetch("query_expected_date")
+    the_trip.users_id = @current_user.id
+
+    if the_expense.valid?
+      the_expense.save
+      redirect_to("/expenses", { :notice => "Expense created successfully." })
+    else
+      redirect_to("/expenses", { :alert => the_expense.errors.full_messages.to_sentence })
+    end
   end
 
   def create
@@ -30,6 +50,7 @@ class ExpensesController < ApplicationController
     the_expense.amount = params.fetch("query_amount")
     the_expense.expected_date = params.fetch("query_expected_date")
     the_expense.expense_types_id = params.fetch("query_expense_types_id")
+    the_expense.trips_id = params.fetch("query_trips_id")
     the_expense.users_id = @current_user.id
 
     if the_expense.valid?
@@ -47,7 +68,7 @@ class ExpensesController < ApplicationController
     the_expense.name = params.fetch("query_name")
     the_expense.amount = params.fetch("query_amount")
     the_expense.expected_date = params.fetch("query_expected_date")
-    the_expense.expense_type = params.fetch("query_expense_type")
+    the_expense.expense_types_id = params.fetch("query_expense_types_id")
     the_expense.users_id = @current_user.id
 
     if the_expense.valid?
