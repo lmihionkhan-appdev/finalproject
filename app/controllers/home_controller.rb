@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def dashboard
-    require "date"
+    require("date")
 
     #calculate total incomes by month
 
@@ -11,15 +11,21 @@ class HomeController < ApplicationController
     ###sort incomes by month
     @list_of_incomes = matching_incomes.order({ :expected_date => :desc })
 
-    #sum all incomes for a given month
+    #sum all incomes for jan
+    @total_monthly_income = 0
 
-    @list_of_incomes.each do |an_income|
-      @months = an_income.expected_date.month
+    @list_of_incomes.each do |thing|
+      @check_month = thing.expected_date.month
+
+      if check_month = 1
+        grab_amount = thing.amount
+      end
+      @total_monthly_income = @total_monthly_income + grab_amount
     end
 
-    if @months = 1
-      @jan_incomes = an_income.pluck(:amount).sum
-    end
+    #if @months = 1
+    #@jan_incomes = an_income.pluck(:amount).sum
+    #end
 
     #@jan_incomes = @list_of_incomes.where({ :expected_date => 1 })
 
