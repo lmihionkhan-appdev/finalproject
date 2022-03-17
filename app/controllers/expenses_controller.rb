@@ -69,10 +69,6 @@ class ExpensesController < ApplicationController
 
     if the_expense.valid?
       the_expense.save
-
-      if the_expense.expense_types_id = 
-        redirect_to("/trips/:path_id")
-      else
       redirect_to("/expenses", { :notice => "Expense created successfully." })
     else
       redirect_to("/expenses", { :alert => the_expense.errors.full_messages.to_sentence })
