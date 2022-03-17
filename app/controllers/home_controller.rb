@@ -14,13 +14,11 @@ class HomeController < ApplicationController
     #sum all incomes for a month
     @starting_monthly_income = 0
 
-    target_month = 7
-
     @list_of_incomes.each do |thing|
       @income_month = thing.expected_date.month
       @income_amount = thing.amount
 
-      if @income_month = target_month
+      if @income_month = 7
         @ending_monthly_income = @starting_monthly_income + @income_amount
       end
     end
