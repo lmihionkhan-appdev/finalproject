@@ -8,16 +8,18 @@ class HomeController < ApplicationController
 
     matching_incomes = Income.where(:users_id => @current_user.id)
 
-    ###sort incomes by month
+    ###sort incomes by date
     @list_of_incomes = matching_incomes.order({ :expected_date => :desc })
 
-    #sum all incomes for jan
+    #sum all incomes for a month
     @total_monthly_income = 0
+
+    target_month = 7
 
     @list_of_incomes.each do |thing|
       @check_month = thing.expected_date.month
 
-      if check_month = 1
+      if @check_month = target_month
         grab_amount = thing.amount
       end
       @total_monthly_income = @total_monthly_income + grab_amount
