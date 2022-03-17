@@ -44,7 +44,7 @@
           Expense type
         </label>
 
-        <input type="text" id="expense_type_box" name="query_expense_type">
+        <input type="text" id="expense_type_box" name="query_expense_types_id">
       </div>
 
     
@@ -104,7 +104,7 @@
         </td>
 
         <td>
-          <%= an_expense.expense_type %>
+          <%= an_expense.expense_types_id %>
         </td>
         <td>
           <%= time_ago_in_words(an_expense.created_at) %> ago
