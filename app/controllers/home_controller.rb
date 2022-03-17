@@ -20,6 +20,8 @@ class HomeController < ApplicationController
     @a.each do |a_month|
       @target_month = a_month
 
+      ##income
+
       @monthly_income = 0
 
       @list_of_incomes.each do |an_income|

@@ -18,7 +18,24 @@
 <% end %>
 
 <hr>
-<%= @target_month %>
+<% @a.each do |a_month| %>
+
+  <% @target_month = a_month %>
+  <% @monthly_income = 0 %>
+
+    <% @list_of_incomes.each do |an_income| %>
+        <% @income_month = an_income.expected_date.month %>
+        <% @income_amount = an_income.amount %>
+
+          <%  if @income_month == @target_month %>
+            <% @monthly_income = @monthly_income + @income_amount %>
+           <% end %>
+
+      <% end %>
+
+  <p>Income for Month #<%=@target_month%> is <%= @monthly_income %>
+
+<% end %>
 
 
 
