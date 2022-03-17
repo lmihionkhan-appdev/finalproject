@@ -4,6 +4,7 @@
 
 <!--bar graph representing net cash flows by month-->
 
+<%= Income.group_by_month.pluck(:amount).sum %>
 
 
 <!--table showing net cash flows calculation by month-->
@@ -11,11 +12,6 @@
 
 <%= @jan_monthly_income %>
 <%= @feb_monthly_income %>
-
-<!-- testing array -->
-<% @a.each do |thing| %>
-    <%= thing + 1%> 
-<% end %>
 
 <hr>
 
@@ -152,6 +148,10 @@
   </li>
  </ul>
  <% end %>
+
+
+
+
 
 
 
