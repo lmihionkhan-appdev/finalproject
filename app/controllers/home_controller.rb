@@ -13,7 +13,15 @@ class HomeController < ApplicationController
 
     #sum all incomes for a given month
 
-    @jan_incomes = @list_of_incomes.where({ :expected_date.month => 01 })
+    @list_of_incomes.each do |an_income|
+      @months = an_income.expected_date.month
+    end
+
+    if @months = 1
+      @jan_incomes = an_income.pluck(:amount).sum
+    end
+
+    #@jan_incomes = @list_of_incomes.where({ :expected_date => 1 })
 
     #####TA RECOMMENDATION:
 
