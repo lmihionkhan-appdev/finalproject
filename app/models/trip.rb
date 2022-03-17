@@ -7,13 +7,12 @@
 #  name          :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  users_id      :integer
 #
 class Trip < ApplicationRecord
-
   validates(:name, { :presence => true })
   validates(:name, { :uniqueness => true })
   validates(:expected_date, { :presence => true })
 
-  has_many(:expenses, { :class_name => "Expense", :foreign_key => "trips_id")
-
+  has_many(:expenses, { :class_name => "Expense", :foreign_key => "trips_id" })
 end

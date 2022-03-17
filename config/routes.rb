@@ -43,6 +43,8 @@ Rails.application.routes.draw do
   # Trips
 
   get("/trips", { :controller => "expenses", :action => "trip_index" })
+  post("/insert_trip", { :controller => "expenses", :action => "add_trip" })
+  get("/trips/:path_id", { :controller => "expenses", :action => "trip_details" })
 
   #------------------------------
 

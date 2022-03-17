@@ -17,4 +17,5 @@ class User < ApplicationRecord
 
   has_many(:expenses, { :class_name => "Expense", :foreign_key => "users_id", :dependent => :destroy })
   has_many(:incomes, { :class_name => "Income", :foreign_key => "users_id", :dependent => :destroy })
+  has_many(:trips, { :class_name => "Trip", :foreign_key => "users_id", :dependent => :destroy })
 end

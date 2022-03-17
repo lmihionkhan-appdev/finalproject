@@ -1,0 +1,65 @@
+<div>
+  <div>
+    <h1>
+      <%= @the_trip.name %> Details
+    </h1>
+    <p> 
+    Created <%= time_ago_in_words(@the_trip.created_at) %> ago. 
+      </p>
+    <p> 
+    Last updated <%= time_ago_in_words(@the_trip.updated_at) %> ago. 
+      </p>
+    
+
+<hr>
+<h4>Expected Date: <%= @the_trip.expected_date %></h4>
+
+<div>
+  <div>
+    <h3>
+      Add a trip expense:
+    </h3>
+
+    <form action="/insert_expense" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+      <p><i>Include the trip name and Deposit #1, Deposit #2, Transportation, or Other Spend.</i><p>
+
+      <div>
+        <label for="amount_box">
+          Amount
+        </label>
+
+        <input type="text" id="amount_box" name="query_amount">
+      </div>
+
+      <div>
+        <label for="expected_date_box">
+          Expected Payment Date
+        </label>
+
+        <input type="date" id="expected_date_box" name="query_expected_date">
+      </div>
+
+      <div>
+        <input type="hidden" id="expense_types_id_box" name="query_expense_types_id" value="Trip">
+      </div>
+
+        <div>
+
+        <input type="hidden" id="trips_id_box" name="query_trips_id" value="<%= @the_trip.id %>">
+      </div>
+
+      <button>
+        Add expense
+      </button>
+
+
+<h3>Current Expenses for <%= @the_trip.name %><h3>
+
+<!-- table showing expenses for this trip>
