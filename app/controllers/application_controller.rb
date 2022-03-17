@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
 
   before_action(:force_user_sign_in)
 
-  require "date"
-
   def load_current_user
     the_id = session[:user_id]
 
@@ -18,4 +16,6 @@ class ApplicationController < ActionController::Base
       redirect_to("/user_sign_in", { :notice => "You have to sign in first." })
     end
   end
+
+
 end
