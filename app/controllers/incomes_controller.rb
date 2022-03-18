@@ -1,4 +1,11 @@
 class IncomesController < ApplicationController
+  def rand_date
+    # return a random date within 30 days of today (past) and 100 days of today (future).
+    n = rand(-30..200)
+    new_date = Date.today.advance(days: n)
+    return new_date
+  end
+
   def index
     matching_incomes = Income.where(:users_id => @current_user.id)
 
