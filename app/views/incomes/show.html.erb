@@ -45,7 +45,12 @@
           Income type
         </label>
 
-        <input type="text" id="income_type_box" name="query_income_types_id" value="<%= @the_income.income_types_id %>">
+        <select id="income_type_box" name="query_income_types_id">
+          <% list_of_income_types = IncomeType.all %>
+          <% list_of_income_types.each do |thing| %>
+          <option value="<%= thing.name.capitalize %>"><%= thing.name.capitalize %></option>
+          <% end %>
+        </select>
       </div>
 
       <button>

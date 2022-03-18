@@ -41,15 +41,22 @@
 
       <div>
         <label for="income_type_box">
-          Income types ID
+          Income type
         </label>
 
-        <input type="text" id="income_type_box" name="query_income_types_id">
+        <select id="income_type_box" name="query_income_types_id">
+          <% list_of_income_types = IncomeType.all %>
+          <% list_of_income_types.each do |thing| %>
+          <option value="<%= thing.id %>"><%= thing.name.capitalize %></option>
+          <% end %>
+        </select>
       </div>
 
-      <button>
-        Create income
-      </button>
+      <div>
+        <button>
+          Create income
+        </button>
+      </div>
     </form>
   </div>
 </div>
@@ -105,7 +112,9 @@
         </td>
 
         <td>
-          <%= an_income.income_types_id %>
+          <% type_id = an_income.income_types_id %>
+          <% type = IncomeType.where({:id => type_id}).at(0)%>
+          <%= type.name.capitalize %>
         </td>
 
         <td>

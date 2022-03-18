@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   # DELETE
   get("/delete_income/:path_id", { :controller => "incomes", :action => "destroy" })
 
+  # TEMPORARY CREATE INCOME TYPE
+  post("/insert_income_type", { :controller => "incomes", :action => "create_type" })
+
   #------------------------------
 
   # Routes for the Expense resource:
