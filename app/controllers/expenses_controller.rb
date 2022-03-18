@@ -48,6 +48,23 @@ class ExpensesController < ApplicationController
     end
   end
 
+  def create_trip_expense
+    the_expense = Expense.new
+    the_expense.name = params.fetch("query_name")
+    the_expense.amount = params.fetch("query_amount")
+    the_expense.expected_date = params.fetch("query_expected_date")
+    the_expense.expense_types_id = params.fetch("query_expense_types_id")
+    the_expense.trips_id = params.fetch("query_trips_id")
+    the_expense.users_id = @current_user.id
+
+    if the_expense.valid?
+      the_expense.save
+      redirect_to("/trips/#{the_expense.trips_id}", { :notice => "Trip updated successfully." })
+    else
+      redirect_to("/trips/#{the_expense.trips_id}", { :alert => "Could not update trip, try again." })
+    end
+  end
+
   def trip_details
     the_id = params.fetch("path_id")
 

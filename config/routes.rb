@@ -46,6 +46,10 @@ Rails.application.routes.draw do
   post("/insert_trip", { :controller => "expenses", :action => "add_trip" })
   get("/trips/:path_id", { :controller => "expenses", :action => "trip_details" })
 
+  # Add Trip Expense
+
+  post("/insert_trip_expense", { :controller => "expenses", :action => "create_trip_expense" })
+
   #------------------------------
 
   # Routes for the User account:
