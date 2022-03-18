@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Cash Flow and Trip Planner</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarColor03">
+        <ul class="navbar-nav me-auto">
+        <% if session.fetch("user_id") == nil %>
+          <li class="nav-item">
+            <a class="nav-link" href="/user_sign_up">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user_sign_in">Sign In</a>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a class="nav-link active" href="/">Net Cash Flows Dashboard
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More Details</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/incomes">My Income</a>
+              <a class="dropdown-item" href="/expenses">My Expenses</a>
+              <a class="dropdown-item" href="/trips">My Trips</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/user_sign_out">Sign Out</a>
+            </div>
+          </li>
+          <li>
+            <a href="/user_sign_out">
+              Sign out
+            </a>
+          </li>
+        </ul>
+        <% end %>
+      </div>
+    </div>
+  </nav>
