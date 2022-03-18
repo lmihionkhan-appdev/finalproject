@@ -68,9 +68,13 @@ class ExpensesController < ApplicationController
   def trip_details
     the_id = params.fetch("path_id")
 
-    matching_trips = Trip.where({ :id => the_id })
+    matching_trips = Trip.where({ :id => the_id, :users_id => @current_user.id })
 
     @the_trip = matching_trips.at(0)
+
+    @matching_trip_expenses = Expense.where({ :trips_id => @the_trip.id, :expense_types_id => 1 })
+
+    @list_of_trip_expenses = @matching_trip_expenses.order({ :expected_date => :desc })
 
     render({ :template => "expenses/trips/trip_show.html.erb" })
   end

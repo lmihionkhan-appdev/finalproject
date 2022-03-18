@@ -59,7 +59,65 @@
         Add expense
       </button>
 
+<hr>
 
-<h3>Current Expenses for <%= @the_trip.name %><h3>
+<h3>Current Expenses for <%= @the_trip.name %></h3>
+
+<h4>Total Expenses = <%= @list_of_trip_expenses.pluck(:amount).sum %> </h4>
+
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          Name
+        </th>
+
+        <th>
+          Expected payment due date
+        </th>
+
+        <th>
+          Amount
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_trip_expenses.each do |trip_expense| %>
+      <tr>
+        <td>
+          <%= trip_expense.name %>
+        </td>
+
+        <td>
+          <%= trip_expense.expected_date  %>
+        </td>
+        <td>
+          <%= trip_expense.amount %> 
+        </td>
+        <td>
+          <%= time_ago_in_words(trip_expense.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/expenses/<%= trip_expense.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
+
+
 
 <!-- table showing expenses for this trip>
