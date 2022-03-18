@@ -4,21 +4,16 @@
       <%= @the_trip.name %> Details
     </h1>
     <p> 
-    Created <%= time_ago_in_words(@the_trip.created_at) %> ago. 
-      </p>
-    <p> 
-    Last updated <%= time_ago_in_words(@the_trip.updated_at) %> ago. 
+    Created <%= time_ago_in_words(@the_trip.created_at) %> ago and updated <%= time_ago_in_words(@the_trip.updated_at) %> ago. 
       </p>
     
-<h4>Expected Date: <%= @the_trip.expected_date %></h4>
+<h5>Expected Date: <%= @the_trip.expected_date %></h5>
+<h5>Total Expenses = <%= @list_of_trip_expenses.pluck(:amount).sum.to_s(:currency) %> </h5>
 
 <hr>
 
 <div>
   <div>
-    <h3>
-      Update trip
-    </h3>
 
     <form action="/modify_trip/<%= @the_trip.id %>"  method="post" >
       <div>
@@ -95,12 +90,10 @@
 
 <h3>Current Expenses for <%= @the_trip.name %></h3>
 
-<h4>Total Expenses = <%= @list_of_trip_expenses.pluck(:amount).sum %> </h4>
-
 <div>
   <div>
-    <table border="1">
-      <tr>
+    <table class="table table-hover">
+      <tr scope="col">
         <th>
           Name
         </th>

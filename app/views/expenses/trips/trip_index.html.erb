@@ -3,7 +3,7 @@
 <div>
   <div>
     <h3>
-      Add a new trip:
+      Add a new trip
     </h3>
 
     <form action="/insert_trip" method="post">
@@ -36,8 +36,8 @@
 <h3>My Current Trips </h3>
 <div>
   <div>
-    <table border="1">
-      <tr>
+    <table class="table table-hover">
+      <tr scope="col">
         <th>
           Name
         </th>
@@ -46,6 +46,9 @@
           Expected date
         </th>
 
+        <th>
+          Total Spend
+        </th>
         <th>
           Created at
         </th>
@@ -67,6 +70,13 @@
         <td>
           <%= a_trip.expected_date  %>
         </td>
+
+        <td>
+          <% matching_trip_expenses = Expense.where({ :trips_id => a_trip.id, :expense_types_id => 1 }) %>
+          <% total_trip_expenses = matching_trip_expenses.pluck(:amount).sum%>
+          <%= total_trip_expenses.to_s(:currency) %>
+        </td>
+
         <td>
           <%= time_ago_in_words(a_trip.created_at) %> ago
         </td>
@@ -76,7 +86,7 @@
 
         <td>
           <a href="/trips/<%= a_trip.id %>">
-            Show details
+            Show details & add expenses
           </a>
         </td>
       </tr>
