@@ -1,42 +1,42 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Cash Flow and Trip Planner</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse" id="navbarColor03">
-        <ul class="navbar-nav me-auto">
-        <% if session.fetch("user_id") == nil %>
+<!--Mads code -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <i class="fas fa-search-dollar fa-2x" style="color:white"></i>
+    <a class="navbar-brand" href="/">Cash Flow and Trip Planner</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"  data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsible-nav-links" id="navbarColor02">
+      <ul class="navbar-nav me-auto">
+        <%if session.fetch(:user_id) == nil %>
           <li class="nav-item">
-            <a class="nav-link" href="/user_sign_up">Sign Up</a>
+            <a class="nav-link" href="/">Home <span class="visually-hidden">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/user_sign_in">Sign In</a>
+            <a class="nav-link" href="/user_sign_in">Sign In <span class="sr-only">(current)</span></a>
           </li>
-        <% else %>
           <li class="nav-item">
-            <a class="nav-link active" href="/">Net Cash Flows Dashboard
-              <span class="visually-hidden">(current)</span>
-            </a>
+            <a class="nav-link" href="/user_sign_up">Sign Up <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More Details</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="/incomes">My Income</a>
-              <a class="dropdown-item" href="/expenses">My Expenses</a>
-              <a class="dropdown-item" href="/trips">My Trips</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="/user_sign_out">Sign Out</a>
-            </div>
+        <%else%>
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
           </li>
-          <li>
-            <a href="/user_sign_out">
-              Sign out
-            </a>
+          <li class="nav-item active">
+            <a class="nav-link" href="/incomes">My Income <span class="sr-only">(current)</span></a>
           </li>
-        </ul>
-        <% end %>
-      </div>
-    </div>
-  </nav>
+          <li class="nav-item active">
+            <a class="nav-link" href="/expenses">My Expenses <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/trips">My Trips <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/user_sign_out">Sign Out <span class="sr-only">(current)</span></a>
+          </li>
+        <%end%>
+      </ul>
+    </div> <!-- .navbar-collapse -->
+  </div> <!-- .container -->
+</nav>
