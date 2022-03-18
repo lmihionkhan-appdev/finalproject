@@ -40,15 +40,20 @@ Rails.application.routes.draw do
   # DELETE
   get("/delete_expense/:path_id", { :controller => "expenses", :action => "destroy" })
 
-  # Trips
+  #-------------------------------
 
-  get("/trips", { :controller => "expenses", :action => "trip_index" })
+  #Routes for Trips:
+
+  #CREATE
   post("/insert_trip", { :controller => "expenses", :action => "add_trip" })
-  get("/trips/:path_id", { :controller => "expenses", :action => "trip_details" })
-
-  # Add Trip Expense
-
   post("/insert_trip_expense", { :controller => "expenses", :action => "create_trip_expense" })
+
+  #READ
+  get("/trips/:path_id", { :controller => "expenses", :action => "trip_details" })
+  get("/trips", { :controller => "expenses", :action => "trip_index" })
+
+  #DELETE
+  get("/delete_trip/:path_id", { :controller => "expenses", :action => "destroy_trip" })
 
   #------------------------------
 

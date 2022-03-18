@@ -122,4 +122,13 @@ class ExpensesController < ApplicationController
 
     redirect_to("/expenses", { :notice => "Expense deleted successfully." })
   end
+
+  def destroy_trip
+    the_id = params.fetch("path_id")
+    the_trip = Trip.where({ :id => the_id }).at(0)
+
+    the_trip.destroy
+
+    redirect_to("/expenses", { :notice => "Expense deleted successfully." })
+  end
 end
