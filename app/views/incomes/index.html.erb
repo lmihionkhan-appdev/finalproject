@@ -11,7 +11,7 @@
 <div>
   <div>
     <h3>
-      Add a new income:
+      Add a new income
     </h3>
 
     <form action="/insert_income" method="post">
@@ -66,34 +66,34 @@
 <h3>My Current Incomes </h3>
 <div>
   <div>
-    <table border="1">
-      <tr>
+    <table class="table table-hover" >
+      <tr class="table-info">
 
-        <th>
+        <th scope="col">
           Name
         </th>
 
-        <th>
+        <th scope="col">
           Amount
         </th>
 
-        <th>
+        <th scope="col">
           Expected Date
         </th>
 
-        <th>
+        <th scope="col">
           Income Type
         </th>
 
-        <th>
+        <th scope="col">
           Created at
         </th>
 
-        <th>
+        <th scope="col">
           Updated at
         </th>
 
-        <th>
+        <th scope="col">
         </th>
       </tr>
 
@@ -104,7 +104,7 @@
         </td>
 
         <td>
-          <%= an_income.amount %>
+          <%= an_income.amount.to_s(:currency) %>
         </td>
 
         <td>
@@ -136,3 +136,4 @@
 </div>
 
 <hr>
+
