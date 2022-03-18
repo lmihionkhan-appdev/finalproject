@@ -127,8 +127,16 @@ class ExpensesController < ApplicationController
     the_id = params.fetch("path_id")
     the_trip = Trip.where({ :id => the_id }).at(0)
 
+    matching_trip_expenses = Expense.where({ :trips_id => the_trip.id, :expense_types_id => 1 })
+
+    # destroy all expenses with the trip
+
+    matching_trip_expenses.each do |thing|
+      thing.destroy
+    end
+
     the_trip.destroy
 
-    redirect_to("/expenses", { :notice => "Expense deleted successfully." })
+    redirect_to("/trips", { :notice => "Trip and related expenses deleted successfully." })
   end
 end
