@@ -1,9 +1,22 @@
+<!--adding spaces-->
 
+<p></p>
+<p></p>
+<p></p>
 
-<h1>Home Dashboard</h1>
+<div>
+  <h1>Home Dashboard</h1>
+</div>
+
+<!--adding spaces-->
+
+<p></p>
+<p></p>
+<p></p>
 
 <!--bar graph representing net cash flows by month-->
 
+<div>
 <html>
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -45,68 +58,66 @@
     <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
   </body>
 </html>
+</div>
 
-
-
-<%= @jan_monthly_income %> Income, <%= @jan_monthly_expenses %> Expenses
-<%= @feb_monthly_income %>
 
 <!--table showing net cash flows calculation by month-->
 
 <hr>
 
+<div>
 <h3>Net Cash Flows</h3>
     <div>
       <div>
-        <table border="1">
+        <table class="table table-hover">
         <tr>
-            <th>
+            <th scope="col">
             </th>
-            <th>
+            <th scope="col">
               January
             </th>
 
-            <th>
+            <th scope="col">
               February
             </th>
 
-            <th>
+            <th scope="col">
               March
             </th>
             
-            <th>
+            <th scope="col">
               April
             </th>
 
-            <th>
+            <th scope="col">
               May
             </th>
 
-            <th>
+            <th scope="col">
               June
             </th>
 
-            <th>
+            <th scope="col">
               July
             </th>
 
-            <th>
+            <th scope="col">
               August
             </th>
 
-            <th>
+            <th scope="col">
               September
             </th>
 
-            <th>
+            <th scope="col">
               October
             </th>
 
-            <th>
+            <th scope="col">
               November
             </th>
 
-            <th>
+            <th scope="col">
               December
             </th>
           </tr>
@@ -118,40 +129,40 @@
               Income
             </td>
             <td>
-              <%= @jan_monthly_income %>
+              <%= @jan_monthly_income.to_s(:currency) %>
             </td>
              <td>
-              <%= @feb_monthly_income %>
+              <%= @feb_monthly_income.to_s(:currency)  %>
             </td>
              <td>
-              <%= @mar_monthly_income %>
+              <%= @mar_monthly_income.to_s(:currency) %>
             </td>
              <td>
-              <%= @apr_monthly_income %>
+              <%= @apr_monthly_income.to_s(:currency) %>
             </td>
              <td>
-              <%= @may_monthly_income %>
+              <%= @may_monthly_income.to_s(:currency) %>
             </td>
              <td>
-              <%= @jun_monthly_income %>
+              <%= @jun_monthly_income.to_s(:currency) %>
             </td>
              <td>
-              <%= @jul_monthly_income %>
+              <%= @jul_monthly_income.to_s(:currency) %>
             </td>
              <td>
-              <%= @aug_monthly_income %>
+              <%= @aug_monthly_income.to_s(:currency) %>
             </td>
              <td>
-              <%= @sep_monthly_income %>
+              <%= @sep_monthly_income.to_s(:currency) %>
             </td>
              <td>
-              <%= @oct_monthly_income %>
+              <%= @oct_monthly_income.to_s(:currency) %>
             </td>
              <td>
-              <%= @nov_monthly_income %>
+              <%= @nov_monthly_income.to_s(:currency) %>
             </td>
              <td>
-              <%= @dec_monthly_income %>
+              <%= @dec_monthly_income.to_s(:currency) %>
             </td>
           </tr>
 
@@ -161,40 +172,40 @@
             </td>
 
             <td>
-              <%= @jan_monthly_expenses %>
+              <%= @jan_monthly_expenses.to_s(:currency) %>
             </td>
             <td>
-              <%= @feb_monthly_expenses %>
+              <%= @feb_monthly_expenses.to_s(:currency) %>
             </td>
             <td>
-              <%= @mar_monthly_expenses %>
+              <%= @mar_monthly_expenses.to_s(:currency) %>
             </td>
             <td>
-              <%= @apr_monthly_expenses %>
+              <%= @apr_monthly_expenses.to_s(:currency) %>
             </td>
             <td>
-              <%= @may_monthly_expenses %>
+              <%= @may_monthly_expenses.to_s(:currency) %>
             </td>
             <td>
-              <%= @jun_monthly_expenses %>
+              <%= @jun_monthly_expenses.to_s(:currency) %>
             </td>
             <td>
-              <%= @jul_monthly_expenses %>
+              <%= @jul_monthly_expenses.to_s(:currency) %>
             </td>
             <td>
-              <%= @aug_monthly_expenses %>
+              <%= @aug_monthly_expenses.to_s(:currency) %>
             </td>
             <td>
-              <%= @sep_monthly_expenses %>
+              <%= @sep_monthly_expenses.to_s(:currency) %>
             </td>
             <td>
-              <%= @oct_monthly_expenses %>
+              <%= @oct_monthly_expenses.to_s(:currency) %>
             </td>
             <td>
-              <%= @nov_monthly_expenses %>
+              <%= @nov_monthly_expenses.to_s(:currency) %>
             </td>
             <td>
-              <%= @dec_monthly_expenses %>
+              <%= @dec_monthly_expenses.to_s(:currency) %>
             </td>
           </tr>
 
@@ -203,44 +214,45 @@
               Net Cash Flow
             </td>
             <td>
-              <%= @jan_net_cash %>
+              <%= @jan_net_cash.to_s(:currency) %>
             </td>
               <td>
-              <%= @feb_net_cash %>
+              <%= @feb_net_cash.to_s(:currency) %>
             </td>
               <td>
-              <%= @feb_net_cash %>
+              <%= @feb_net_cash.to_s(:currency) %>
             </td>
               <td>
-              <%= @feb_net_cash %>
+              <%= @feb_net_cash.to_s(:currency) %>
             </td>
               <td>
-              <%= @feb_net_cash %>
+              <%= @feb_net_cash.to_s(:currency) %>
             </td>
               <td>
-              <%= @feb_net_cash %>
+              <%= @feb_net_cash.to_s(:currency) %>
             </td>
               <td>
-              <%= @feb_net_cash %>
+              <%= @feb_net_cash.to_s(:currency) %>
             </td>
               <td>
-              <%= @feb_net_cash %>
+              <%= @feb_net_cash.to_s(:currency) %>
             </td>
               <td>
-              <%= @feb_net_cash %>
+              <%= @feb_net_cash.to_s(:currency) %>
             </td>
               <td>
-              <%= @feb_net_cash %>
+              <%= @feb_net_cash.to_s(:currency) %>
             </td>
               <td>
-              <%= @feb_net_cash %>
+              <%= @feb_net_cash.to_s(:currency) %>
             </td>
               <td>
-              <%= @feb_net_cash %>
+              <%= @feb_net_cash.to_s(:currency) %>
             </td>
           </tr>
       </table>
   </div>
+</div>
 </div>
 
 
