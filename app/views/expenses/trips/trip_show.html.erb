@@ -10,14 +10,46 @@
     Last updated <%= time_ago_in_words(@the_trip.updated_at) %> ago. 
       </p>
     
+<h4>Expected Date: <%= @the_trip.expected_date %></h4>
 
 <hr>
-<h4>Expected Date: <%= @the_trip.expected_date %></h4>
 
 <div>
   <div>
     <h3>
-      Add a trip expense:
+      Update trip
+    </h3>
+
+    <form action="/modify_trip/<%= @the_trip.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_trip.name %>">
+      </div>
+
+      <div>
+        <label for="expected_date_box">
+          Expected Trip Date
+        </label>
+
+        <input type="date" id="expected_date_box" name="query_expected_date" value="<%= @the_trip.expected_date %>">
+      </div>
+
+      <button>
+        Update trip
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h3>
+      Add a trip expense
     </h3>
 
     <form action="/insert_trip_expense" method="post">

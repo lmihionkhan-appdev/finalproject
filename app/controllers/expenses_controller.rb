@@ -114,6 +114,21 @@ class ExpensesController < ApplicationController
     end
   end
 
+  def update_trip
+    the_id = params.fetch("path_id")
+    the_trip = Trip.where({ :id => the_id }).at(0)
+
+    the_trip.name = params.fetch("query_name")
+    the_trip.expected_date = params.fetch("query_expected_date")
+
+    if the_trip.valid?
+      the_trip.save
+      redirect_to("/trips/#{the_trip.id}", { :notice => "Expense updated successfully." })
+    else
+      redirect_to("/trips/#{the_trip.id}", { :alert => "Unable to modify trip, please try again." })
+    end
+  end
+
   def destroy
     the_id = params.fetch("path_id")
     the_expense = Expense.where({ :id => the_id }).at(0)

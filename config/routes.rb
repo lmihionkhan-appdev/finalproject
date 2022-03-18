@@ -52,6 +52,10 @@ Rails.application.routes.draw do
   get("/trips/:path_id", { :controller => "expenses", :action => "trip_details" })
   get("/trips", { :controller => "expenses", :action => "trip_index" })
 
+  # UPDATE
+
+  post("/modify_trip/:path_id", { :controller => "expenses", :action => "update_trip" })
+
   #DELETE
   get("/delete_trip/:path_id", { :controller => "expenses", :action => "destroy_trip" })
 
