@@ -22,9 +22,7 @@ class Income < ApplicationRecord
 
   belongs_to(:users, { :required => true, :class_name => "User", :foreign_key => "users_id" })
 
-
   def month
-    
     require "date"
 
     my_date = self.expected_date
@@ -34,23 +32,27 @@ class Income < ApplicationRecord
 
     month = my_transformed_date.month
 
-    return month 
+    return month
 
-      #matching_incomes = Income.where({ :expected_date => my_date, :name => my_name })
+    #matching_incomes = Income.where({ :expected_date => my_date, :name => my_name })
 
-      #the_income = matching_incomes.at(0)
+    #the_income = matching_incomes.at(0)
 
-      #the_income.expected_date.month
+    #the_income.expected_date.month
 
-      #return
+    #return
 
     #def commenter
-      #my_author_id = self.author_id
+    #my_author_id = self.author_id
 
-      #matching_users = User.where({ :id => my_author_id })
+    #matching_users = User.where({ :id => my_author_id })
 
-      #the_user = matching_users.at(0)
+    #the_user = matching_users.at(0)
 
-      #return the_user
-    end
+    #return the_user
+  end
+
+  def readonly?
+    false
+  end
 end
