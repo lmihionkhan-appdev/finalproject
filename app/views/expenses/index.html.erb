@@ -14,7 +14,7 @@
       Add a new expense:
     </h3>
 
-    <p><i>To add expenses for a new trip, go to <a href="/trips">My Trips</a>!</i></p>
+
 
     <form action="/insert_expense" method="post">
       <div>
@@ -46,15 +46,17 @@
           Expense type
         </label>
 
-<!--need to edit to exlude trips option!!!-->
         <select id="expense_type_box" name="query_expense_types_id">
-          <% list_of_expense_types = ExpenseType.all %>
-          <% list_of_expense_types.each do |thing| %>
-          <option value="<%= thing.id %>"><%= thing.name%></option>
-          <% end %>
+            <% list_of_expense_types = ExpenseType.all %>
+            <% list_of_expense_types.each do |thing| %>
+              <% if thing.name != "trip" %>
+            <option value="<%= thing.id %>"><%= thing.name.gsub("_", " ").capitalize %></option>
+              <% end %>
+            <% end %>
         </select>
 
-
+    <p><i>To add expenses for a trip, go to <a href="/trips">My Trips</a>!</i></p>
+    
       </div>
 
       <button>
@@ -113,7 +115,9 @@
         </td>
 
         <td>
-          <%= an_expense.expense_types_id %>
+          <% type_id = an_expense.expense_types_id %>
+          <% specific_type = ExpenseType.where({ :id => type_id }).at(0)%>
+          <%= specific_type.name.gsub("_", " ").capitalize %>
         </td>
         <td>
           <%= time_ago_in_words(an_expense.created_at) %> ago

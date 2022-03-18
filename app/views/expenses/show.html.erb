@@ -45,12 +45,18 @@
       </div>
 
       <div>
-        <label for="expense_type_box">
-          Expense type
+      <label for="expense_type_box">
+          Expense Type
         </label>
 
-        <input type="text" id="expense_type_box" name="query_expense_types_id" value="<%= @the_expense.expense_types_id %>">
+        <select id="expense_type_box" name="query_expense_types_id">
+            <% list_of_expense_types = ExpenseType.all %>
+            <% list_of_expense_types.each do |thing| %>
+            <option value="<%= thing.id %>"><%= thing.name.gsub("_", " ").capitalize %></option>
+            <% end %>
+        </select>
       </div>
+
       <button>
         Update expense
       </button>
