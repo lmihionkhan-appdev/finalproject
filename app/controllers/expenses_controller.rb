@@ -85,7 +85,7 @@ class ExpensesController < ApplicationController
     the_expense.amount = params.fetch("query_amount")
     the_expense.expected_date = params.fetch("query_expected_date")
     the_expense.expense_types_id = params.fetch("query_expense_types_id")
-    the_expense.trips_id = params.fetch("query_trips_id")
+    the_expense.trips_id = nil
     the_expense.users_id = @current_user.id
 
     if the_expense.valid?
