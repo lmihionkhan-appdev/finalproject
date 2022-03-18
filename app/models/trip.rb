@@ -16,4 +16,8 @@ class Trip < ApplicationRecord
 
   has_many(:expenses, { :class_name => "Expense", :foreign_key => "trips_id" })
   belongs_to(:users, { :required => true, :class_name => "User", :foreign_key => "users_id" })
+
+  def readonly?
+    false
+  end
 end

@@ -11,4 +11,7 @@ class IncomeType < ApplicationRecord
   
   belongs_to(:incomes, { :required => true, :class_name => "Income", :foreign_key => "income_types_id" })
 
+  def readonly?
+    true
+  end
 end
