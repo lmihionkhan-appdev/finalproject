@@ -20,4 +20,8 @@ class Expense < ApplicationRecord
   validates(:amount, { :presence => true })
 
   belongs_to(:users, { :required => true, :class_name => "User", :foreign_key => "users_id" })
+
+  def readonly?
+    false
+  end
 end
