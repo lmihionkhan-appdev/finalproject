@@ -14,6 +14,8 @@
       Add a new expense:
     </h3>
 
+    <p><i>To add expenses for a new trip, go to <a href="/trips">My Trips</a>!</i></p>
+
     <form action="/insert_expense" method="post">
       <div>
         <label for="name_box">
@@ -44,10 +46,16 @@
           Expense type
         </label>
 
-        <input type="text" id="expense_type_box" name="query_expense_types_id">
+        <select id="expense_type_box" name="query_expense_types_id">
+          <% list_of_expense_types = ExpenseType.all %>
+          <% list_of_expense_types.each do |thing| %>
+          <option value="<%= thing.id %>"><%= thing.name%></option>
+          <% end %>
+        </select>
+
+
       </div>
 
-    
       <button>
         Add expense
       </button>
