@@ -64,6 +64,55 @@
 <hr>
 
 <h3>My Current Incomes </h3>
+
+<% family_incomes = @list_of_incomes.where({ :income_types_id => 1}) %>
+<% family_incomes_sum = family_incomes.pluck(:amount).sum %>
+
+<% loan_incomes = @list_of_incomes.where({ :income_types_id => 2}) %>
+<% loan_incomes_sum = loan_incomes.pluck(:amount).sum %>
+
+<% scholarship_incomes = @list_of_incomes.where({ :income_types_id => 3}) %>
+<% scholarship_incomes_sum = scholarship_incomes.pluck(:amount).sum %>
+
+<% investments_incomes = @list_of_incomes.where({ :income_types_id => 4}) %>
+<% investments_incomes_sum = investments_incomes.pluck(:amount).sum %>
+
+<% savings_incomes = @list_of_incomes.where({ :income_types_id => 5}) %>
+<% savings_incomes_sum = savings_incomes.pluck(:amount).sum %>
+
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Category', 'Total Incomes'],
+          ['Money from Family',  <%= family_incomes_sum %>],
+          ['Loans', <%= loan_incomes_sum %>],
+          ['Scholarships', <%= scholarship_incomes_sum %>],
+          ['Liquidated Investments', <%= investments_incomes_sum %>],
+          ['Savings', <%= savings_incomes_sum %>]
+        ]);
+
+        var options = {
+          title: 'My Incomes by Type'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
 <div>
   <div>
     <table class="table table-hover" >
